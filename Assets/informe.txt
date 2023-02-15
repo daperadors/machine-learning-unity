@@ -1,0 +1,10 @@
+Observaciones-> 
+	- 3 raycast 115, 90, 75,
+	- Collisions objects,
+	- Velocidad
+Acciones->
+	- Movimiento eje X
+Decisionnes->
+	- 
+Recompensas->
+	-
