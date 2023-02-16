@@ -1,8 +1,8 @@
-Observaciones-> 
-	- 3 raycast 115, 90, 75,
-	- Collisions objects,
-	- Velocidad
-Acciones->
+Observaciones-> 6
+	- x,y position player
+	- x,y current cloud
+	- x,y next cloud
+Acciones-> 1 discreta 3 valores posibles
 	- Movimiento eje X
 Decisionnes->
 	- 
