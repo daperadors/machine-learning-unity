@@ -4,6 +4,7 @@ using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PouController : Agent
 {
@@ -23,11 +24,23 @@ public class PouController : Agent
     [SerializeField] GameManager m_GameManager;
     private float horizontalInput;
 
+    [SerializeField] public Transform m_MuerteTransform;
+    [SerializeField] Transform m_NubesTransform;
+    [SerializeField] Transform m_PlataformaTransform;
+    [SerializeField] GameObject m_NubePrincipal;
+
     public delegate void NewJump(GameObject cloud);
     public static NewJump OnNewJump;
+    public delegate void ObstacleEvasion();
+    public event ObstacleEvasion OnObstacleEvasion;
+    public delegate void PouDead();
+    public static PouDead OnPouDead;
+
+    Vector2 cameraVector2;
     private void Awake()
     {
         m_Rigidbody = GetComponent<Rigidbody2D>();
+        cameraVector2= Camera.main.transform.localPosition;
         m_InitialPosition = transform.position;
     }
     void Update()
@@ -59,15 +72,15 @@ public class PouController : Agent
 
         //Posicion player actual
         distance = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
-        sensor.AddObservation(distance);
+        sensor.AddObservation(distance - cameraVector2);
 
         //Posicion nube actual
         distance = new Vector2(m_GameManager.m_LastCloud.transform.position.x, m_GameManager.m_LastCloud.transform.position.y);
-        sensor.AddObservation(distance);
+        sensor.AddObservation(distance - cameraVector2);
 
         //Posicion nube siguiente
         distance = new Vector2(m_GameManager.newCloud.transform.position.x, m_GameManager.newCloud.transform.position.y);
-        sensor.AddObservation(distance);
+        sensor.AddObservation(distance - cameraVector2);
 
     }
     public override void OnActionReceived(ActionBuffers actions)
@@ -87,12 +100,24 @@ public class PouController : Agent
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Plataforma") m_Rigidbody.AddForce(Vector2.up * m_JumpForce, ForceMode2D.Impulse);
+        if (collision.gameObject.tag == "Plataforma")
+        {
+            if (m_NubesTransform.childCount==0)
+            {
+                GameObject nube = Instantiate(m_NubePrincipal, m_NubesTransform);
+                nube.transform.position = new Vector2(m_PlataformaTransform.position.x, m_PlataformaTransform.position.y + 1.5f);
+            }
+            m_Rigidbody.AddForce(Vector2.up * m_JumpForce, ForceMode2D.Impulse);
+        }
 
         if (collision.gameObject.tag == "Nube")
         {
             if (collision.gameObject.name == "Tocada") AddReward(-5f);
-            else AddReward(0.1f);
+            else
+            {
+                OnObstacleEvasion?.Invoke();
+                AddReward(0.1f);
+            }
 
             BoxCollider2D platformCollider = collision.gameObject.GetComponent<BoxCollider2D>();
             Vector2 collisionPoint = collision.GetContact(0).point;
@@ -100,11 +125,30 @@ public class PouController : Agent
             {
                 m_Rigidbody.velocity= Vector2.zero;
                 m_Rigidbody.AddForce(Vector2.up * m_JumpForce, ForceMode2D.Impulse);
-                OnNewJump?.Invoke(collision.gameObject);
+                // OnNewJump?.Invoke(collision.gameObject);
+                m_GameManager.GenerateCloud(collision.gameObject);
                 collision.gameObject.name = "Tocada";
             }
         }
 
 
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Muerte")
+        {
+            DeleteWhenDead();
+            EndEpisode();
+            OnPouDead?.Invoke();
+        }
+    }
+
+    private void DeleteWhenDead()
+    {
+        for (int i = 0; i < m_MuerteTransform.childCount; ++i)
+            Destroy(m_MuerteTransform.GetChild(i).gameObject);
+
+        for (int i = 0; i < m_NubesTransform.childCount; ++i)
+            Destroy(m_NubesTransform.GetChild(i).gameObject);
     }
 }
