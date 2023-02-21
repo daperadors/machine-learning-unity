@@ -75,11 +75,11 @@ public class PouController : Agent
         sensor.AddObservation(distance - cameraVector2);
 
         //Posicion nube actual
-        distance = new Vector2(m_GameManager.m_LastCloud.transform.position.x, m_GameManager.m_LastCloud.transform.position.y);
+        distance = new Vector2((m_GameManager.m_LastCloud != null) ? m_GameManager.m_LastCloud.transform.position.x : 0, (m_GameManager.m_LastCloud != null) ?  m_GameManager.m_LastCloud.transform.position.y : 0);
         sensor.AddObservation(distance - cameraVector2);
 
         //Posicion nube siguiente
-        distance = new Vector2(m_GameManager.newCloud.transform.position.x, m_GameManager.newCloud.transform.position.y);
+        distance = new Vector2((m_GameManager.newCloud!=null) ? m_GameManager.newCloud.transform.position.x : 0, (m_GameManager.newCloud!=null)? m_GameManager.newCloud.transform.position.y:0);
         sensor.AddObservation(distance - cameraVector2);
 
     }
@@ -112,7 +112,7 @@ public class PouController : Agent
 
         if (collision.gameObject.tag == "Nube")
         {
-            if (collision.gameObject.name == "Tocada") AddReward(-5f);
+            if (collision.gameObject.name == "Tocada") AddReward(-200f);
             else
             {
                 OnObstacleEvasion?.Invoke();
