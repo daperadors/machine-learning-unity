@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.MLAgents;
@@ -35,7 +36,7 @@ public class PouController : Agent
     public event ObstacleEvasion OnObstacleEvasion;
     public delegate void PouDead();
     public static PouDead OnPouDead;
-
+    private bool floorTouched = false;
     Vector2 cameraVector2;
     private void Awake()
     {
@@ -43,7 +44,7 @@ public class PouController : Agent
         cameraVector2= Camera.main.transform.localPosition;
         m_InitialPosition = transform.position;
     }
-    void Update()
+    /*void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
     }
@@ -53,8 +54,12 @@ public class PouController : Agent
         Vector3 movement = new Vector3(horizontalInput, 0f, 0f);
         movement *= speed * Time.fixedDeltaTime;
         transform.position += movement;
+    }*/
+    private void FixedUpdate()
+    {
+        if (!floorTouched) return;
+        RequestDecision();
     }
-
     private void ResetPlayer()
     {
         transform.position = m_InitialPosition;
@@ -75,18 +80,17 @@ public class PouController : Agent
         sensor.AddObservation(distance - cameraVector2);
 
         //Posicion nube actual
-        distance = new Vector2(m_GameManager.m_LastCloud.transform.position.x, m_GameManager.m_LastCloud.transform.position.y);
+        distance = new Vector2((m_GameManager.m_LastCloud != null) ? m_GameManager.m_LastCloud.transform.position.x : 0, (m_GameManager.m_LastCloud != null) ?  m_GameManager.m_LastCloud.transform.position.y : 0);
         sensor.AddObservation(distance - cameraVector2);
-
         //Posicion nube siguiente
-        distance = new Vector2(m_GameManager.newCloud.transform.position.x, m_GameManager.newCloud.transform.position.y);
+        distance = new Vector2((m_GameManager.newCloud!=null) ? m_GameManager.newCloud.transform.position.x : 0, (m_GameManager.newCloud!=null)? m_GameManager.newCloud.transform.position.y:0);
         sensor.AddObservation(distance - cameraVector2);
 
     }
     public override void OnActionReceived(ActionBuffers actions)
     {
         int direcion = actions.DiscreteActions[0] -1;
-        m_Rigidbody.velocity = Vector2.right * direcion * speed;
+        m_Rigidbody.velocity = new Vector2(direcion * speed, m_Rigidbody.velocity.y);
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
@@ -102,17 +106,19 @@ public class PouController : Agent
     {
         if (collision.gameObject.tag == "Plataforma")
         {
+            AddReward(-5f);
             if (m_NubesTransform.childCount==0)
             {
                 GameObject nube = Instantiate(m_NubePrincipal, m_NubesTransform);
                 nube.transform.position = new Vector2(m_PlataformaTransform.position.x, m_PlataformaTransform.position.y + 1.5f);
             }
             m_Rigidbody.AddForce(Vector2.up * m_JumpForce, ForceMode2D.Impulse);
+            if (!floorTouched) floorTouched = true;
         }
 
         if (collision.gameObject.tag == "Nube")
         {
-            if (collision.gameObject.name == "Tocada") AddReward(-5f);
+            if (collision.gameObject.name == "Tocada") AddReward(-10f);
             else
             {
                 OnObstacleEvasion?.Invoke();
@@ -139,10 +145,14 @@ public class PouController : Agent
         {
             DeleteWhenDead();
             EndEpisode();
+            floorTouched = false;
             OnPouDead?.Invoke();
         }
     }
-
+   /* private void OnCollisionStay2D(Collision2D collision)
+    {
+        print("ssss");
+    }*/
     private void DeleteWhenDead()
     {
         for (int i = 0; i < m_MuerteTransform.childCount; ++i)

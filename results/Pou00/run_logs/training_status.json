@@ -1,0 +1,56 @@
+{
+    "Pou": {
+        "checkpoints": [
+            {
+                "steps": 499996,
+                "file_path": "results\\Pou00\\Pou\\Pou-499996.onnx",
+                "reward": 0.06870503825463838,
+                "creation_time": 1677084094.0913477,
+                "auxillary_file_paths": [
+                    "results\\Pou00\\Pou\\Pou-499996.pt"
+                ]
+            },
+            {
+                "steps": 500006,
+                "file_path": "results\\Pou00\\Pou\\Pou-500006.onnx",
+                "reward": 0.06858168989152412,
+                "creation_time": 1677084094.1404119,
+                "auxillary_file_paths": [
+                    "results\\Pou00\\Pou\\Pou-500006.pt"
+                ]
+            },
+            {
+                "steps": 500006,
+                "file_path": "results\\Pou00\\Pou\\Pou-500006.onnx",
+                "reward": null,
+                "creation_time": 1677084791.3810961,
+                "auxillary_file_paths": [
+                    "results\\Pou00\\Pou\\Pou-500006.pt"
+                ]
+            },
+            {
+                "steps": 500006,
+                "file_path": "results\\Pou00\\Pou\\Pou-500006.onnx",
+                "reward": null,
+                "creation_time": 1677084800.5556946,
+                "auxillary_file_paths": [
+                    "results\\Pou00\\Pou\\Pou-500006.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 500006,
+            "file_path": "results\\Pou00\\Pou.onnx",
+            "reward": null,
+            "creation_time": 1677084800.5556946,
+            "auxillary_file_paths": [
+                "results\\Pou00\\Pou\\Pou-500006.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.29.0",
+        "torch_version": "1.13.1+cpu"
+    }
+}
