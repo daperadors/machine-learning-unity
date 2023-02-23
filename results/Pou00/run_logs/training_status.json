@@ -2,55 +2,37 @@
     "Pou": {
         "checkpoints": [
             {
-                "steps": 499996,
-                "file_path": "results\\Pou00\\Pou\\Pou-499996.onnx",
-                "reward": 0.06870503825463838,
-                "creation_time": 1677084094.0913477,
+                "steps": 499972,
+                "file_path": "results\\Pou04\\Pou\\Pou-499972.onnx",
+                "reward": -0.02682926742041983,
+                "creation_time": 1677156753.9578164,
                 "auxillary_file_paths": [
-                    "results\\Pou00\\Pou\\Pou-499996.pt"
+                    "results\\Pou04\\Pou\\Pou-499972.pt"
                 ]
             },
             {
-                "steps": 500006,
-                "file_path": "results\\Pou00\\Pou\\Pou-500006.onnx",
-                "reward": 0.06858168989152412,
-                "creation_time": 1677084094.1404119,
+                "steps": 500036,
+                "file_path": "results\\Pou04\\Pou\\Pou-500036.onnx",
+                "reward": -0.02682926742041983,
+                "creation_time": 1677156754.0208306,
                 "auxillary_file_paths": [
-                    "results\\Pou00\\Pou\\Pou-500006.pt"
-                ]
-            },
-            {
-                "steps": 500006,
-                "file_path": "results\\Pou00\\Pou\\Pou-500006.onnx",
-                "reward": null,
-                "creation_time": 1677084791.3810961,
-                "auxillary_file_paths": [
-                    "results\\Pou00\\Pou\\Pou-500006.pt"
-                ]
-            },
-            {
-                "steps": 500006,
-                "file_path": "results\\Pou00\\Pou\\Pou-500006.onnx",
-                "reward": null,
-                "creation_time": 1677084800.5556946,
-                "auxillary_file_paths": [
-                    "results\\Pou00\\Pou\\Pou-500006.pt"
+                    "results\\Pou04\\Pou\\Pou-500036.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 500006,
-            "file_path": "results\\Pou00\\Pou.onnx",
-            "reward": null,
-            "creation_time": 1677084800.5556946,
+            "steps": 500036,
+            "file_path": "results\\Pou04\\Pou.onnx",
+            "reward": -0.02682926742041983,
+            "creation_time": 1677156754.0208306,
             "auxillary_file_paths": [
-                "results\\Pou00\\Pou\\Pou-500006.pt"
+                "results\\Pou04\\Pou\\Pou-500036.pt"
             ]
         }
     },
     "metadata": {
         "stats_format_version": "0.3.0",
-        "mlagents_version": "0.29.0",
+        "mlagents_version": "0.30.0",
         "torch_version": "1.13.1+cpu"
     }
 }

@@ -60,6 +60,7 @@ public class PouController : Agent
     {
         if (!floorTouched) return;
         RequestDecision();
+
     }
     private void ResetPlayer()
     {
@@ -123,7 +124,7 @@ public class PouController : Agent
             else
             {
                 OnObstacleEvasion?.Invoke();
-                AddReward(0.1f);
+                AddReward(0.2f);
             }
 
             BoxCollider2D platformCollider = collision.gameObject.GetComponent<BoxCollider2D>();
@@ -144,10 +145,12 @@ public class PouController : Agent
     {
         if (collision.gameObject.tag == "Muerte")
         {
+            AddReward(-5f);
             DeleteWhenDead();
             EndEpisode();
             floorTouched = false;
-            OnPouDead?.Invoke();
+            //OnPouDead?.Invoke();
+            m_GameManager.PouDead();
         }
     }
    /* private void OnCollisionStay2D(Collision2D collision)

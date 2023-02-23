@@ -1,10 +1,13 @@
 Observaciones-> 6
-	- x,y position player
-	- x,y current cloud
-	- x,y next cloud
+	- x,y actual position player: 
+	- x,y current cloud position:
+	- x,y next cloud position:
 Acciones-> 1 discreta 3 valores posibles
 	- Movimiento eje X
-Decisionnes->
-	- 
+	- El salto constante al tocar una plataforma.
+Decisiones->
+	- En el fixed update solo cuando el pou haya tocado el suelo y esté actualmente en el aire.
 Recompensas->
-	-
+	- Al chocar con los límites de la pantalla se le enviarán -5 de recompensas al igual que cuando toca el suelo. 
+	  Cuando toca una nube ya tocada, se le enviará -10 de recompensa. 
+	- Cada vez que toque una nube no tocada 0.1 de recompensa positiva.

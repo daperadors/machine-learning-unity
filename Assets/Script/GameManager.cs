@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
             m_LastCloud = newCloud;
         }
     }
-    private void PouDead()
+    public void PouDead()
     {
         if(m_MaxScore < m_Score)
         {
