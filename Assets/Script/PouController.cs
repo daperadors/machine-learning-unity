@@ -29,6 +29,7 @@ public class PouController : Agent
     [SerializeField] Transform m_NubesTransform;
     [SerializeField] Transform m_PlataformaTransform;
     [SerializeField] GameObject m_NubePrincipal;
+    [SerializeField] GameObject m_NubePrefab;
 
     public delegate void NewJump(GameObject cloud);
     public static NewJump OnNewJump;
@@ -109,7 +110,7 @@ public class PouController : Agent
             AddReward(-5f);
             if (m_NubesTransform.childCount==0)
             {
-                GameObject nube = Instantiate(m_NubePrincipal, m_NubesTransform);
+                GameObject nube = Instantiate(m_NubePrefab, m_NubesTransform);
                 nube.transform.position = new Vector2(m_PlataformaTransform.position.x, m_PlataformaTransform.position.y + 1.5f);
             }
             m_Rigidbody.AddForce(Vector2.up * m_JumpForce, ForceMode2D.Impulse);

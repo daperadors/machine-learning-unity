@@ -988,7 +988,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: 9ecb2a56b0c6b42f7ad2b40ab97c5515, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: Pou
@@ -1019,7 +1019,8 @@ MonoBehaviour:
   m_MuerteTransform: {fileID: 50271050}
   m_NubesTransform: {fileID: 1641940428}
   m_PlataformaTransform: {fileID: 720548401}
-  m_NubePrincipal: {fileID: 8977228083196698032, guid: 4f4ad60f7f7631a40aca354b9d40fac8, type: 3}
+  m_NubePrincipal: {fileID: 1627160974}
+  m_NubePrefab: {fileID: 8977228083196698032, guid: 4f4ad60f7f7631a40aca354b9d40fac8, type: 3}
 --- !u!212 &316164448
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3015,7 +3016,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: 9ecb2a56b0c6b42f7ad2b40ab97c5515, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: Pou
@@ -3046,7 +3047,8 @@ MonoBehaviour:
   m_MuerteTransform: {fileID: 550658449}
   m_NubesTransform: {fileID: 1707103524}
   m_PlataformaTransform: {fileID: 685903367}
-  m_NubePrincipal: {fileID: 8977228083196698032, guid: 4f4ad60f7f7631a40aca354b9d40fac8, type: 3}
+  m_NubePrincipal: {fileID: 1850546461}
+  m_NubePrefab: {fileID: 8977228083196698032, guid: 4f4ad60f7f7631a40aca354b9d40fac8, type: 3}
 --- !u!212 &775628650
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3539,7 +3541,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: 9ecb2a56b0c6b42f7ad2b40ab97c5515, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: Pou
@@ -3570,7 +3572,8 @@ MonoBehaviour:
   m_MuerteTransform: {fileID: 2129616237}
   m_NubesTransform: {fileID: 218472601}
   m_PlataformaTransform: {fileID: 2006508377}
-  m_NubePrincipal: {fileID: 8977228083196698032, guid: 4f4ad60f7f7631a40aca354b9d40fac8, type: 3}
+  m_NubePrincipal: {fileID: 1649838759}
+  m_NubePrefab: {fileID: 8977228083196698032, guid: 4f4ad60f7f7631a40aca354b9d40fac8, type: 3}
 --- !u!212 &956931714
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4895,7 +4898,8 @@ MonoBehaviour:
   m_MuerteTransform: {fileID: 1176535864}
   m_NubesTransform: {fileID: 1925152214}
   m_PlataformaTransform: {fileID: 1635610905}
-  m_NubePrincipal: {fileID: 8977228083196698032, guid: 4f4ad60f7f7631a40aca354b9d40fac8, type: 3}
+  m_NubePrincipal: {fileID: 539993042}
+  m_NubePrefab: {fileID: 8977228083196698032, guid: 4f4ad60f7f7631a40aca354b9d40fac8, type: 3}
 --- !u!50 &1191802918
 Rigidbody2D:
   serializedVersion: 4
@@ -4939,7 +4943,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: 9ecb2a56b0c6b42f7ad2b40ab97c5515, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: Pou
@@ -5356,7 +5360,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: 9ecb2a56b0c6b42f7ad2b40ab97c5515, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: Pou
@@ -5387,7 +5391,8 @@ MonoBehaviour:
   m_MuerteTransform: {fileID: 2079178393}
   m_NubesTransform: {fileID: 70826093}
   m_PlataformaTransform: {fileID: 277910886}
-  m_NubePrincipal: {fileID: 8977228083196698032, guid: 4f4ad60f7f7631a40aca354b9d40fac8, type: 3}
+  m_NubePrincipal: {fileID: 1410456335}
+  m_NubePrefab: {fileID: 8977228083196698032, guid: 4f4ad60f7f7631a40aca354b9d40fac8, type: 3}
 --- !u!212 &1370838819
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5662,7 +5667,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: 9ecb2a56b0c6b42f7ad2b40ab97c5515, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: Pou
@@ -5693,7 +5698,8 @@ MonoBehaviour:
   m_MuerteTransform: {fileID: 352854574}
   m_NubesTransform: {fileID: 660226171}
   m_PlataformaTransform: {fileID: 1169598575}
-  m_NubePrincipal: {fileID: 8977228083196698032, guid: 4f4ad60f7f7631a40aca354b9d40fac8, type: 3}
+  m_NubePrincipal: {fileID: 1532551066}
+  m_NubePrefab: {fileID: 8977228083196698032, guid: 4f4ad60f7f7631a40aca354b9d40fac8, type: 3}
 --- !u!212 &1422031943
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8243,7 +8249,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: 9ecb2a56b0c6b42f7ad2b40ab97c5515, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: Pou
@@ -8274,7 +8280,8 @@ MonoBehaviour:
   m_MuerteTransform: {fileID: 609802655}
   m_NubesTransform: {fileID: 2037313207}
   m_PlataformaTransform: {fileID: 1773359374}
-  m_NubePrincipal: {fileID: 8977228083196698032, guid: 4f4ad60f7f7631a40aca354b9d40fac8, type: 3}
+  m_NubePrincipal: {fileID: 2128985655}
+  m_NubePrefab: {fileID: 8977228083196698032, guid: 4f4ad60f7f7631a40aca354b9d40fac8, type: 3}
 --- !u!212 &2138447520
 SpriteRenderer:
   m_ObjectHideFlags: 0
